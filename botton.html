@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Button Experience</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            margin: 0;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        .glowing-button {
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .glowing-button1 {
+            color: #ff007f;
+        }
+
+        .glowing-button2 {
+            color: #00bfff;
+        }
+
+        .glowing-button3 {
+            color: #32cd32;
+        }
+
+        .glowing-button:hover {
+            transform: scale(1.1);
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.8), 0 0 40px rgba(255, 0, 127, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .window {
+            display: none;
+            animation: fadeIn 2s ease-out;
+            padding: 30px;
+            background-color: #333;
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(255, 0, 127, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .window.active {
+            display: block;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .window-title {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ff007f;
+            margin-bottom: 20px;
+        }
+
+        .slide-content {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ddd;
+            margin: 10px 0;
+            text-align: left;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        .back-button {
+            font-size: 20px;
+            margin-top: 30px;
+            background-color: #ff007f;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #ff6fb2;
+        }
+
+        .video-container {
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border: none;
+        }
+
+        .translation {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Buttons -->
+        <div id="main-interface" class="button-container">
+            <button class="glowing-button glowing-button1" onclick="showAnniversaryWindow()">Anniversary</button>
+            <button class="glowing-button glowing-button2" onclick="showPythonDefinition()">Python Definition</button>
+            <button class="glowing-button glowing-button3" onclick="showProfessionalWindow()">Professional Window</button>
+        </div>
+
+        <!-- Anniversary Window -->
+        <div id="anniversary-window" class="window">
+            <div class="window-title">🎉 Happy Anniversary! 🎉</div>
+            <div class="slide-content">
+                <p>We celebrate this wonderful occasion together, with joy and happiness!</p>
+            </div>
+            <!-- Translation for Anniversary -->
+            <div class="translation">
+                <strong>Translation:</strong> "نحتفل بهذه المناسبة الرائعة معًا، بالفرح والسعادة!"
+            </div>
+            <!-- Custom Video for Anniversary -->
+            <div class="video-container">
+                <video controls>
+                    <source src="anniversary_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <button class="back-button" onclick="backToMain()">Back to Main</button>
+        </div>
+
+        <!-- Python Definition Window -->
+        <div id="python-window" class="window">
+            <div class="window-title">What is Python?</div>
+            <div class="slide-content">
+                <p>Python is a high-level, interpreted, general-purpose programming language. It was created by Guido van Rossum and first released in 1991.</p>
+            </div>
+            <!-- Translation for Python -->
+            <div class="translation">
+                <strong>Translation:</strong> "بايثون هي لغة برمجة عالية المستوى، مفسرة، وعامة الاستخدام. تم إنشاؤها بواسطة جيدو فان روسوم وتم إصدارها لأول مرة في عام 1991."
+            </div>
+            <!-- Related Video for Python -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/_uQrJ0TkZlc" title="Python Programming Video" allowfullscreen></iframe>
+            </div>
+            <button class="back-button" onclick="backToMain()">Back to Main</button>
+        </div>
+
+        <!-- Professional Window -->
+        <div id="professional-window" class="window">
+            <div class="window-title">Professional Presentation</div>
+            <div class="slide-content">
+                <p>This is a demonstration of a professional slide with detailed content and smooth transitions.</p>
+            </div>
+            <!-- Translation for Professional -->
+            <div class="translation">
+                <strong>Translation:</strong> "هذه هي عرض تقديمي احترافي مع محتوى مفصل وانتقالات سلسة."
+            </div>
+            <!-- Related Video for Professional -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/XuQnAybFvZQ" title="Professional Presentation Video" allowfullscreen></iframe>
+            </div>
+            <button class="back-button" onclick="backToMain()">Back to Main</button>
+        </div>
+    </div>
+
+    <script>
+        function showAnniversaryWindow() {
+            document.getElementById('main-interface').style.display = 'none';
+            document.getElementById('anniversary-window').classList.add('active');
+        }
+
+        function showPythonDefinition() {
+            document.getElementById('main-interface').style.display = 'none';
+            document.getElementById('python-window').classList.add('active');
+        }
+
+        function showProfessionalWindow() {
+            document.getElementById('main-interface').style.display = 'none';
+            document.getElementById('professional-window').classList.add('active');
+        }
+
+        function backToMain() {
+            document.getElementById('anniversary-window').classList.remove('active');
+            document.getElementById('python-window').classList.remove('active');
+            document.getElementById('professional-window').classList.remove('active');
+            document.getElementById('main-interface').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
